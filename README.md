@@ -4,8 +4,10 @@
 
 Hackathon sponsored by [Sprocket Security](https://www.sprocketsecurity.com) and hosted at [Wild West Hackin' Fest 2018](https://www.wildwesthackinfest.com)   
 
-<img align="left" width="55%" height="55%" src="https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/sprocket.png">  <img align="left" width="30%" height="30%" src="https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/wwhf.png">   
+<img align="left" width="55%" height="55%" src="https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/sprocket.png">  <img align="left" width="40%" height="40%" src="https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/wwhf.png">  
 
+<br>
+<br>
 <br>
 <br>
 <br>
