@@ -2,8 +2,9 @@
 
 >Help develop a security tool that everyone will want in their arsenal. Join Sprocket Security and friends in a community-driven hackathon at **Wild West Hackin' Fest**! We’ll be building an on-demand proxy tool that leverages multiple cloud environments giving you the ability to source your traffic from multiple IP addresses. Think of it as your own private TOR network for your redteam and pentest engagements. No more defenses throttling and blocking you! The community will start from scratch and collaboratively design, architect, and code this tool and release it at the end of the conference for everyone! We welcome all experience levels. There is a lot of moving parts to this project that you can help with. Even if you don’t know how to code, you can contribute and make new friends.
 
-Sponsored by:                                                                      Hosted at:
-<img align="left" width="60%" height="60%" src="https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/sprocket.png">  <img align="left" width="30%" height="30%" src="https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/wwhf.png">   
+Hackathon sponsored by [Sprocket Security](https://www.sprocketsecurity.com) and hosted at [Wild West Hackin' Fest 2018](https://www.wildwesthackinfest.com)   
+
+<img align="left" width="55%" height="55%" src="https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/sprocket.png">  <img align="left" width="30%" height="30%" src="https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/wwhf.png">   
 
 <br>
 <br>
