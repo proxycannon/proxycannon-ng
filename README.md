@@ -1,6 +1,32 @@
 # proxycannon-ng 
 
->Help develop a security tool that everyone will want in their arsenal. Join Sprocket Security and friends in a community-driven hackathon at **Wild West Hackin' Fest**! We’ll be building an on-demand proxy tool that leverages multiple cloud environments giving you the ability to source your traffic from multiple IP addresses. Think of it as your own private TOR network for your redteam and pentest engagements. No more defenses throttling and blocking you! The community will start from scratch and collaboratively design, architect, and code this tool and release it at the end of the conference for everyone! We welcome all experience levels. There is a lot of moving parts to this project that you can help with. Even if you don’t know how to code, you can contribute and make new friends.
+>Thank you **Wild West Hackin' Fest** for your help and support in our community-driven hackathon!  We've created a on-demand proxy tool that leverages cloud environments giving a user the ability to source (all) your traffic from an endless supply of  cloud based IP address. Think of it as your own private TOR network for your redteam and pentest engagements. No more defenses throttling and blocking you!
+
+### Initial Release
+Code and infrastructure has been developed, tested and proven viable. We're in the process of ironing out final changes and will have commits showing up this weekend (October 27/28).
+
+  **Successes: **
+  
+   - VPN Server Build (scripted)
+   - Client VPN (Full Tunnel)
+   - Terraform Node Management (Build, Destroy, Routing)
+   - AWS Multipath Node Routing (Load Balanced Exit Nodes)
+   
+### Getting Started
+
+AWS Management
+- Amazon AWS Account (Goal is to support multiple cloud providers, initial release is on AWS)
+- Launch (1) Ubuntu Server t1-micro instance, recommend public AMI ami-0f65671a86f061fcd 
+
+Build OpenVPN Server 
+- Run ServerBuild.sh (From this GIT repo)
+
+Build Exit Nodes
+- Run node-setup.sh
+
+
+
+### Project History
 
 Hackathon sponsored by [Sprocket Security](https://www.sprocketsecurity.com) and hosted at [Wild West Hackin' Fest 2018](https://www.wildwesthackinfest.com)   
 
@@ -17,11 +43,9 @@ Hackathon sponsored by [Sprocket Security](https://www.sprocketsecurity.com) and
 ### Get Involved
 Follow [@sprocketsec](https://www.twitter.com/sprocketsec) on twitter for live updates during the hackathon. 
 
-The hackathon will be held in the main conference hall. Find the Sprocket Security booth and we'll have tables and swag for coders. 
+Join us in [Slack](https://join.slack.com/t/hackfest-hq/shared_invite/enQtNDY1NjA4ODExNzYzLWNjM2EwMDIxN2RmYTgyMjNlMjhjMTgyYzQ0NzZkZGM1OGViOGFmYmMxNzMwZTAzMTlhMTkxODljODc5YTcxZTE) to discuss, contribute and troubleshoot. We'd love to hear from you.
 
-If you're not going to Wild West Hackin' Fest, you can still help out by submitting your design ideas via an issue in the proxycannon-ng repo!
-
-### A high-level visual of what we are building:
+### Implementation Diagram
 ![proxycannon-ng visual](https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/proxycannon-ng-visual.png)  
 
 ### Special Thanks
