@@ -5,7 +5,7 @@
 ### Initial Release
 Code and infrastructure has been developed, tested and proven viable. We're in the process of ironing out final changes and will have commits showing up this weekend (October 27/28).
 
-  **Successes: **
+  **Successes:**
   
    - VPN Server Build (scripted)
    - Client VPN (Full Tunnel)
