@@ -19,12 +19,16 @@ AWS Management
 - Launch (1) Ubuntu Server t1-micro instance, recommend public AMI ami-0f65671a86f061fcd 
 
 Build OpenVPN Server 
-- Run ServerBuild.sh (From this GIT repo)
+- cd into setup
+- Run setup-load-balancing.sh (From this GIT repo)
 
 Build Exit Nodes
-- Run node-setup.sh
-
-
+- perform terraform prerequisites
+- cd in nodes/aws then run:
+```
+terraform init
+terraform apply
+```
 
 ### Project History
 
