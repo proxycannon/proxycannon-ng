@@ -31,11 +31,13 @@ cp configs/node-server.conf /etc/openvpn/node-server.conf
 cp configs/client-server.conf /etc/openvpn/client-server.conf
 
 # setup ca and certs
+mkdir /etc/openvpn/ccd
 make-cadir /etc/openvpn/easy-rsa
 cd /etc/openvpn/easy-rsa/
 ln -s openssl-1.0.0.cnf openssl.cnf
 mkdir keys
 source ./vars
+./clean-all
 /etc/openvpn/easy-rsa/pkitool --initca
 /etc/openvpn/easy-rsa/pkitool --server server
 /usr/bin/openssl dhparam -out /etc/openvpn/easy-rsa/keys/dh2048.pem 2048
@@ -57,7 +59,7 @@ sysctl -w net.ipv4.ip_forward=1
 
 # use L4 (src ip, src dport, dest ip, dport) hashing for load balancing instead of L3 (src ip ,dst ip)
 #echo 1 > /proc/sys/net/ipv4/fib_multipath_hash_policy
-sysctrl -w net.ipv4.fib_multipath_hash_policy=1
+sysctl -w net.ipv4.fib_multipath_hash_policy=1
 
 # setup a second routing table
 echo "50        loadb" >> /etc/iproute2/rt_tables
