@@ -36,7 +36,7 @@ make-cadir /etc/openvpn/easy-rsa
 cd /etc/openvpn/easy-rsa/
 ln -s openssl-1.0.0.cnf openssl.cnf
 mkdir keys
-source ./vars
+. /etc/openvpn/easy-rsa/vars
 ./clean-all
 /etc/openvpn/easy-rsa/pkitool --initca
 /etc/openvpn/easy-rsa/pkitool --server server
