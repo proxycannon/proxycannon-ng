@@ -9,6 +9,9 @@ resource "aws_instance" "exit-node" {
   key_name      = "proxycannon"
   vpc_security_group_ids = ["${aws_security_group.exit-node-sec-group.id}"]
   subnet_id	= "subnet-b1a666fd"
+  # we need to disable this for internal routing
+  source_dest_check	= false
+  count		= "${var.count}"
 
 
   tags {
@@ -40,17 +43,16 @@ resource "aws_instance" "exit-node" {
 
   # modify our route table when we bring up an exit-node
   provisioner "local-exec" {
-    command = "sudo ./add_route.bash ${aws_instance.exit-node.private_ip}"
+    command = "sudo ./add_route.bash ${self.private_ip}"
   }
 
   # modify our route table when we destroy an exit-node
   provisioner "local-exec" {
     when = "destroy"
-    command = "sudo ./del_route.bash ${aws_instance.exit-node.private_ip}"
+    command = "sudo ./del_route.bash ${self.private_ip}"
   }
 
 }
-
 
 resource "aws_security_group" "exit-node-sec-group" {
   name = "exit-node-sec-group"
@@ -69,15 +71,4 @@ resource "aws_security_group" "exit-node-sec-group" {
   }
 }
 
-#output "public_ip" {
-#  value = "${aws_instance.exit-node.public_ip}"
-#}
-
-#output "private_ip" {
-#  value = "${aws_instance.exit-node.private_ip}"
-#}
-
-#output "ssh_cmd" {
-#  value = "\nssh -i ${var.aws_priv_key} ubuntu@${aws_instance.exit-node.public_ip}"
-#}
 
