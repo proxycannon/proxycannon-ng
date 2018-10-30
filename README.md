@@ -81,15 +81,20 @@ Test OpenVPN connectivity from your workstation by running:
 openvpn --config proxycannon-client.conf
 ```
 
-### Scale up/down exit-nodes
-Scaling of exit-nodes is controlled on the control-server using terraform. To scale up additional AWS exit-nodes, do the following:
+**Setup Completed! yay!** From now on you'll only need to connect to the VPN to use proxycannon-ng. The next section details how to add and remove exit-nodes (source IPs):
+
+## Managing exit-nodes
+Scaling of exit-nodes is controlled on the control-server using terraform.
+### Scale up exit-nodes
+To create AWS exit-nodes, do the following:
 1. cd into `proxycannon-ng/nodes/aws`
 2. Edit the count value in `variables.tf` to the number of exit-nodes (source IPs) you'd like
 3. run `terraform apply` to launch the instances.
 
-Scaling down exit-nodes can be done by reducing the count value in `variables.tf` and running `terraform apply` again. Terraform will automatically remove X number of exit-node instances.
-
+### Scale down exit-nodes
 If you want to stop all exit-nodes run `terraform destroy`.
+OR
+Scaling down exit-nodes can be done by reducing the count value in `variables.tf` and running `terraform apply` again. Terraform will automatically remove X number of exit-node instances.
 
 ---
 
