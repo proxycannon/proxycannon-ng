@@ -30,6 +30,9 @@ Support multiple cloud environments (initial release only supports AWS)
 ### Implementation Diagram
 ![proxycannon-ng visual](https://github.com/proxycannon/proxycannon-ng/blob/master/docs/images/proxycannon-ng-visual.png)  
 
+### Video Demo
+[![Video Demo of ProxyCannon-NG](https://img.youtube.com/vi/DLb0lN8dppY/0.jpg)](https://www.youtube.com/watch?v=DLb0lN8dppY)  
+
 ## Setup
 The control-server is a OpenVPN server that your workstation will connect to. This server always remains up. Exit-nodes are systems connected to the control-server that provides load balancing and multiple source IP addresses. Exit-nodes can scale up and down to suite your needs.
 
