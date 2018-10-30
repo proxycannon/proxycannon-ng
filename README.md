@@ -95,9 +95,9 @@ To create AWS exit-nodes, do the following:
 3. run `terraform apply` to launch the instances.
 
 ### Scale down exit-nodes
-If you want to stop all exit-nodes run `terraform destroy`.
-OR
-Scaling down exit-nodes can be done by reducing the count value in `variables.tf` and running `terraform apply` again. Terraform will automatically remove X number of exit-node instances.
+If you want to stop all exit-nodes run `terraform destroy`.  
+OR  
+Scaling down exit-nodes can be done by reducing the count value in `variables.tf` and running `terraform apply` again. Terraform will automatically remove X number of exit-node instances.  
 
 ---
 
