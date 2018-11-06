@@ -8,7 +8,7 @@ resource "aws_instance" "exit-node" {
   instance_type = "t2.micro"
   key_name      = "proxycannon"
   vpc_security_group_ids = ["${aws_security_group.exit-node-sec-group.id}"]
-  subnet_id	= "subnet-b1a666fd"
+  subnet_id	= "${var.subnet_id}"
   # we need to disable this for internal routing
   source_dest_check	= false
   count		= "${var.count}"
