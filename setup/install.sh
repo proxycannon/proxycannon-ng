@@ -28,13 +28,14 @@ region = us-east-2
 EOF
 chown -R $SUDO_USER:$SUDO_USER ~/.aws
 
-##################################
-# update subnet id in variables.tf
-##################################
+####################################################
+# update subnet id and firewall rule in variables.tf
+####################################################
 MAC=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/`
 SUBNETID=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/$MAC/subnet-id`
 sed -i "s/subnet-XXXXXXXX/$SUBNETID/" ../nodes/aws/variables.tf
-
+PRIVATEIP=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/$MAC/local-ipv4s`
+sed -i "s/CONTROLSERVERPRIVATEIP/$PRIVATEIP/" ../nodes/aws/variables.tf
 
 ################
 # setup openvpn
