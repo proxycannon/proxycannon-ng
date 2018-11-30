@@ -21,6 +21,14 @@ rm -rf terraform
 mkdir ~/.aws
 touch ~/.aws/credentials
 
+##################################
+# update subnet id in variables.tf
+##################################
+MAC=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/`
+SUBNETID=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/$MAC/subnet-id`
+sed -i "s/subnet-XXXXXXXX/$SUBNETID/" ../nodes/aws/variables.tf
+
+
 ################
 # setup openvpn
 ################
@@ -83,8 +91,6 @@ cp /etc/openvpn/easy-rsa/keys/client01.crt ~/proxycannon-vpn-client/
 cp /etc/openvpn/easy-rsa/keys/client01.key ~/proxycannon-vpn-client/
 mv ~/proxycannon-client.conf ~/proxycannon-vpn-client/
 chown -R $SUDO_USER:$SUDO_USER ~/proxycannon-vpn-client
-
-
 
 ############################
 # post install instructions
