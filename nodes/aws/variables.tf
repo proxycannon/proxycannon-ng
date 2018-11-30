@@ -19,6 +19,7 @@ variable "size" {
 
 variable "allowedips" {
   default = [
+    "CONTROLSERVERPUBLICIP/32",
     "CONTROLSERVERPRIVATEIP/32"
   ]
 }

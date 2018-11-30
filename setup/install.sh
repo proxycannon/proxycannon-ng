@@ -36,6 +36,8 @@ SUBNETID=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/$
 sed -i "s/subnet-XXXXXXXX/$SUBNETID/" ../nodes/aws/variables.tf
 PRIVATEIP=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/$MAC/local-ipv4s`
 sed -i "s/CONTROLSERVERPRIVATEIP/$PRIVATEIP/" ../nodes/aws/variables.tf
+EIP=`curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
+sed -i "s/CONTROLSERVERPUBLICIP/$EIP/" ../nodes/aws/variables.tf
 
 ################
 # setup openvpn
@@ -67,7 +69,6 @@ systemctl start openvpn@node-server.service
 systemctl start openvpn@client-server.service
 
 # modify client config with remote IP of this server
-EIP=`curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
 sed -i "s/REMOTE_PUB_IP/$EIP/" ~/proxycannon-client.conf
 
 ###################
