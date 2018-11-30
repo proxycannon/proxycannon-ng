@@ -78,8 +78,9 @@ echo "50        loadb" >> /etc/iproute2/rt_tables
 # set rule for openvpn client source network to use the second routing table
 ip rule add from 10.10.10.0/24 table loadb
 
-# always snat from eth0
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+# always snat from default ethernet
+DEFAULTETH=`ip route | grep default | sed -e "s/^.*dev.//" -e "s/.proto.*//"`
+iptables -t nat -A POSTROUTING -o $DEFAULTETH -j MASQUERADE
 
 #######################################
 # collect vpn config files to one place
