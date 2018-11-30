@@ -91,10 +91,12 @@ chown $SUDO_USER:$SUDO_USER ~/proxycannon-vpn-client/*
 ############################
 
 echo "A folder containing the OpenVPN client config has been created at /home/$SUDO_USER/proxycannon-vpn-client."
-echo "Download these files by running the following from your workstation (including the trailing period): scp -i proxycannon.pem $SUDO_USER@$EIP:/home/$SUDO_USER/proxycannon-vpn-client/* ."
-
+echo "Download these files by running the following from your workstation (including the trailing period): "
+echo
+echo "scp -i proxycannon.pem $SUDO_USER@$EIP:/home/$SUDO_USER/proxycannon-vpn-client/* ."
+echo 
 echo "####################### OpenVPN client config [proxycannon-client.conf] ################################"
-cat ~/proxycannon-client.conf
+cat ~/proxycannon-vpn-client/proxycannon-client.conf
 
 echo "####################### Be sure to add your AWS API keys and SSH keys to the following locations ###################"
 echo "copy your aws ssh private key to ~/.ssh/proxycannon.pem and chmod 600"
