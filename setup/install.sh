@@ -20,6 +20,13 @@ rm -rf terraform
 # create directory for our aws credentials
 mkdir ~/.aws
 touch ~/.aws/credentials
+cat << EOF >> ~/.aws/credentials
+[default]
+aws_access_key_id = REPLACE_WITH_YOUR_OWN
+aws_secret_access_key = REPLACE_WITH_YOUR_OWN
+region = us-east-2
+EOF
+chown -R $SUDO_USER:$SUDO_USER ~/.aws
 
 ##################################
 # update subnet id in variables.tf
