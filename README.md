@@ -72,12 +72,10 @@ Perform the following on the control-server:
 2. Run `terraform init` to download the AWS modules. (you only need to do this once)
 
 #### 5. Copy OpenVPN files to your workstation
-Copy the following files from the control-server to the `/etc/openvpn` directory on your workstation:
-- ~/proxycannon-client.conf
-- /etc/openvpn/easy-rsa/keys/ta.key
-- /etc/openvpn/easy-rsa/keys/ca.crt
-- /etc/openvpn/easy-rsa/keys/client01.crt
-- /etc/openvpn/easy-rsa/keys/client01.key  
+Copy the contents of the ~/proxycannon-vpn-client folder on your workstation:
+```
+scp -i proxycannon.pem ubuntu@<external_ip>:/home/ubuntu/proxycannon-vpn-client/* .
+```
 
 Test OpenVPN connectivity from your workstation by running:
 ```
