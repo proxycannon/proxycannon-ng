@@ -82,7 +82,7 @@ cp /etc/openvpn/easy-rsa/keys/ca.crt ~/proxycannon-vpn-client/
 cp /etc/openvpn/easy-rsa/keys/client01.crt ~/proxycannon-vpn-client/
 cp /etc/openvpn/easy-rsa/keys/client01.key ~/proxycannon-vpn-client/
 mv ~/proxycannon-client.conf ~/proxycannon-vpn-client/
-chown $SUDO_USER:$SUDO_USER ~/proxycannon-vpn-client/*
+chown -R $SUDO_USER:$SUDO_USER ~/proxycannon-vpn-client
 
 
 
