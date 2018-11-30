@@ -8,7 +8,7 @@
 # update and install deps
 apt update
 apt -y upgrade
-apt -y install unzip git openvpn easy-rsa
+apt -y install zip unzip git openvpn easy-rsa
 
 # install terraform
 wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip
@@ -81,15 +81,28 @@ ip rule add from 10.10.10.0/24 table loadb
 # always snat from eth0
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
+#######################################
+# collect vpn config files to one place
+#######################################
+mkdir ~/proxycannon-vpn-client
+cp /etc/openvpn/easy-rsa/keys/ta.key ~/proxycannon-vpn-client/
+cp /etc/openvpn/easy-rsa/keys/ca.crt ~/proxycannon-vpn-client/
+cp /etc/openvpn/easy-rsa/keys/client01.crt ~/proxycannon-vpn-client/
+cp /etc/openvpn/easy-rsa/keys/client01.key ~/proxycannon-vpn-client/
+mv ~/proxycannon-client.conf ~/proxycannon-vpn-client/
+chown -R $SUDO_USER:$SUDO_USER ~/proxycannon-vpn-client
 
 ############################
 # post install instructions
 ############################
 
-echo "Copy /etc/openvpn/easy-rsa/keys/ta.key, /etc/openvpn/easy-rsa/keys/ca.crt, /etc/openvpn/easy-rsa/keys/client01.crt, /etc/openvpn/easy-rsa/keys/client01.key, and ~/proxycannon-client.conf to your workstation."
-
+echo "A folder containing the OpenVPN client config has been created at /home/$SUDO_USER/proxycannon-vpn-client."
+echo "Download these files by running the following from your workstation (including the trailing period): "
+echo
+echo "scp -i proxycannon.pem $SUDO_USER@$EIP:/home/$SUDO_USER/proxycannon-vpn-client/* ."
+echo 
 echo "####################### OpenVPN client config [proxycannon-client.conf] ################################"
-cat ~/proxycannon-client.conf
+cat ~/proxycannon-vpn-client/proxycannon-client.conf
 
 echo "####################### Be sure to add your AWS API keys and SSH keys to the following locations ###################"
 echo "copy your aws ssh private key to ~/.ssh/proxycannon.pem and chmod 600"
