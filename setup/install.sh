@@ -21,6 +21,14 @@ rm -rf terraform
 mkdir ~/.aws
 touch ~/.aws/credentials
 
+##################################
+# update subnet id in variables.tf
+##################################
+MAC=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/`
+SUBNETID=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/$MAC/subnet-id`
+sed -i "s/subnet-XXXXXXXX/$SUBNETID/" ../nodes/aws/variables.tf
+
+
 ################
 # setup openvpn
 ################
@@ -73,12 +81,6 @@ ip rule add from 10.10.10.0/24 table loadb
 # always snat from eth0
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
-##################################
-# update subnet id in variables.tf
-##################################
-MAC=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/`
-SUBNETID=`curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/$MAC/subnet-id`
-sed -i "s/subnet-XXXXXXXX/$SUBNETID/" ../nodes/aws/variables.tf
 
 ############################
 # post install instructions
