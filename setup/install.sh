@@ -76,7 +76,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 #######################################
 # collect vpn config files to one place
 #######################################
-mkdir ~/proxycannon-vpn
+mkdir ~/proxycannon-vpn-client
 cp /etc/openvpn/easy-rsa/keys/ta.key ~/proxycannon-vpn-client/
 cp /etc/openvpn/easy-rsa/keys/ca.crt ~/proxycannon-vpn-client/
 cp /etc/openvpn/easy-rsa/keys/client01.crt ~/proxycannon-vpn-client/
