@@ -106,6 +106,10 @@ Scaling down exit-nodes can be done by reducing the count value in `variables.tf
 [@jarsnah12](https://www.twitter.com/jarsnah12) - original proxycannon v1 author  
 [@w9hax](https://www.twitter.com/w9hax) - mad openVPN skillz  
 [@caseycammilleri](https://www.twitter.com/caseycammilleri) - Gets lost deep in iptables  
+[@jaredhaight](https://twitter.com/jaredhaight) - Streamlining install and a ton of improvements
 
 Special thanks to @i128 (@jarsnah12 on twitter) for developing the original proxycannon tool that is our inspirartion.
+
+### Known Issues and Troublshooting
+See [Wiki](https://github.com/proxycannon/proxycannon-ng/wiki)
 
