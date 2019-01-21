@@ -1,3 +1,4 @@
 #! /bin/bash
 sudo sysctl -w net.ipv4.ip_forward=1
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+DEFAULTETH=`ip route | grep default | sed -e "s/^.*dev.//" -e "s/.proto.*//"`
+sudo iptables -t nat -A POSTROUTING -o $DEFAULTETH -j MASQUERADE
