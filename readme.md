@@ -1,22 +1,32 @@
-### Proxycannon Redux
+# Proxycannon Redux
 
-This project is a fork of the work done by Sprocket Security in **proxycannon-ng**.
-```https://github.com/proxycannon/proxycannon-ng```
+>This project is a reintroduction of the concepts created by the original proxycannon-ng. The original proxycannon was devised by Sprocket Security during the Wild West Hackin' Fest's hackathon.
 
-The goal of this fork was two part:
-A. Add functionality for Digital Ocean since that was our VPS of choice and
-2. Simplify the user's interaction with the tool
+This project was forked from the original [proxycannon-ng](https://github.com/proxycannon/proxycannon-ng) repo.
 
-##### Major changes from the original include:
-  - Use Terraform to create the command server as well as the exit nodes
-  - Create a user interactive script to build the entire infrastructure
-  - Added support for Digital Ocean
-  - Simplified the content needed to accomplish these goals
+### Why change things?
 
-##### More to-dos:
-  - Add Azure Support
-  - Create VPN for Command Nodes and Exit Nodes
-  - Work on some form of logging for tracking purposes
+Ultimately, we noticed that the original repo was not very active. The original targeted compatibility with other virtual providers and it hadn't come. We primarily used Digital Ocean and wanted to get that piece working. Enter our effort.
+
+Then, we began to identify areas to simplify the application usage. For instance we moved the creation of the command server as a part of the terraform execution instead of requiring the user to have one created to begin.
+
+Now things are a little more simplified and direct. The user (probably you) would just need add SSH and API token information to `proxycannon.tfvars` to enable authentication. Then all that needs to happen is running `proxycannon.sh` and indicate the provider with `-p` and the number of exit nodes with `-c`. The number of exit nodes is also theoretically endless so long as you can pay for it.
+
+![Basic Proxycannon Network Map](https://github.com/blacklanternsecurity/proxycannon-ng/blob/master/imgs/ProxyCannon.png)
+
+### Changelog
+- Added Digital Ocean functionality
+- Simplified the amount of data the user needs to provide to run the tool
+- Included the proxycannon command server/load balancer in the Terraform creation
+- Updated AWS function to accommodate the new command node creation
+
+### Target Changes
+- Add Azure functionality
+- Add other provider functionality as we find the desire/need for them
+- Create mix-provider networks
+- Improve firewalls
+- Add VPN support between Command and Nodes
+- Some kind of logging
 
 #### How-to
 1. Add the following variables to `proxycannon.tfvars` before running
