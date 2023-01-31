@@ -11,7 +11,7 @@ resource "aws_instance" "exit-node" {
   subnet_id	= "${var.subnet_id}"
   # we need to disable this for internal routing
   source_dest_check	= false
-  count		= "${var.count}"
+  exit_nodes		= "${var.exit_nodes}"
 
 
   tags {
@@ -48,7 +48,7 @@ resource "aws_instance" "exit-node" {
 
   # modify our route table when we destroy an exit-node
   provisioner "local-exec" {
-    when = "destroy"
+    when = destroy
     command = "sudo ./del_route.bash ${self.private_ip}"
   }
 
