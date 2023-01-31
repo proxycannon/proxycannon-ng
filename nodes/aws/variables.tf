@@ -3,7 +3,7 @@ variable "aws_priv_key" {
 }
 
 # number of exit-node instances to launch
-variable "count" {
+variable "exit_nodes" {
   default = 2
 }
 
